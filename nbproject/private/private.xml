@@ -6,6 +6,7 @@
             <file>file:/D:/Projetos/Java/aps-codemit/src/pilha/estatica/interfaces/IPilhaEstatica.java</file>
             <file>file:/D:/Projetos/Java/aps-codemit/src/pilha/estatica/classes/PilhaEstatica.java</file>
             <file>file:/D:/Projetos/Java/aps-codemit/test/tests/PilhaEstaticaTest.java</file>
+            <file>file:/D:/Projetos/Java/aps-codemit/src/pilha/estatica/exceptions/PilhaEstaticaException.java</file>
         </group>
     </open-files>
 </project-private>
