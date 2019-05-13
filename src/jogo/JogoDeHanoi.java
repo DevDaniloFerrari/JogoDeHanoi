@@ -48,6 +48,10 @@ public class JogoDeHanoi {
         
         return true;
     }
+    
+    public boolean terminou(){
+      return (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()) || ( this.PilhaInicial.isEmpty() & this.PilhaDois.isEmpty());
+    }
 
     private IPilhaEstatica obterTorre(int topo) throws Exception {
 
