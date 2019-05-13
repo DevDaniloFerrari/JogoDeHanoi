@@ -49,6 +49,7 @@ public class JogoDeHanoi {
         return true;
     }
     
+    // Implementação método terminou...
     public boolean terminou(){
       return (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()) || ( this.PilhaInicial.isEmpty() & this.PilhaDois.isEmpty());
     }
