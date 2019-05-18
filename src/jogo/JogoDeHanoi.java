@@ -27,10 +27,10 @@ public class JogoDeHanoi {
         IPilhaEstatica pilhaDeOrigem = this.obterTorre(numeroNaTorreDeOrigem);
         IPilhaEstatica pilhaDeDestino = this.obterTorre(numeroNaTorreDeDestino);
         
-        if(pilhaDeOrigem==null || pilhaDeDestino==null){
+        if(pilhaDeOrigem==null){
             return false;
         }
-        
+         
         if(pilhaDeOrigem.isEmpty()){
             return false;
         }
@@ -48,10 +48,16 @@ public class JogoDeHanoi {
         
         return true;
     }
-    
+         
     // Implementação método terminou...
     public boolean terminou(){
       return (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()) || ( this.PilhaInicial.isEmpty() & this.PilhaDois.isEmpty());
+    }
+    
+    public String imprimir(){
+        return "Pilha Inicial: "+PilhaInicial.exibirPilha() 
+                +"\nPilha Um: "+ PilhaUm.exibirPilha() 
+                + "\nPilha Dois: "+PilhaDois.exibirPilha();
     }
 
     private IPilhaEstatica obterTorre(int topo) throws Exception {

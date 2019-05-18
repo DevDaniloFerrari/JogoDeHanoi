@@ -59,5 +59,5 @@ public class PilhaEstatica<T> implements IPilhaEstatica {
     public int size() {
         return Topo;
     }
-
+    
 }

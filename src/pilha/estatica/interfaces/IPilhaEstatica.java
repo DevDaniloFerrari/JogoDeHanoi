@@ -8,5 +8,6 @@ public interface IPilhaEstatica{
     public Object pop() throws Exception;
     public Object peek() throws Exception;
     public int size();
+    public String exibirPilha();
     
 }
