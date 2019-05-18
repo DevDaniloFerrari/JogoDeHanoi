@@ -7,6 +7,7 @@ public class Application {
     public static void main(String[] args) throws Exception{
         JogoDeHanoi jogoDeHanoi = new JogoDeHanoi(8);
         
+        System.out.println(jogoDeHanoi.imprimir());
     }
     
 }

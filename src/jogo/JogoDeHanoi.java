@@ -53,6 +53,11 @@ public class JogoDeHanoi {
       return (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()) || ( this.PilhaInicial.isEmpty() & this.PilhaDois.isEmpty());
     }
     
+        public String imprimir(){
+        return "• Pilha Inicial: "+PilhaInicial.exibirPilha() 
+                +"\n• Pilha Um: "+ PilhaUm.exibirPilha() 
+                + "\n• Pilha Dois: "+PilhaDois.exibirPilha();
+    }
     
     private IPilhaEstatica obterTorre(int topo) throws Exception {
 
