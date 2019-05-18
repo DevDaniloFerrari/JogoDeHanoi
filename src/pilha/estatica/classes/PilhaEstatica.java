@@ -60,4 +60,13 @@ public class PilhaEstatica<T> implements IPilhaEstatica {
         return Topo;
     }
     
+        @Override
+    public String exibirPilha(){
+        String resultado ="";
+        for (int i = 0; i < Dados.length; i++) {
+            resultado  += Dados[i]+";";    
+        }
+        return resultado;
+    }
+    
 }

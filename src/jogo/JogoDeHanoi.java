@@ -49,17 +49,11 @@ public class JogoDeHanoi {
         return true;
     }
          
-    // Implementação método terminou...
     public boolean terminou(){
       return (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()) || ( this.PilhaInicial.isEmpty() & this.PilhaDois.isEmpty());
     }
     
-    public String imprimir(){
-        return "Pilha Inicial: "+PilhaInicial.exibirPilha() 
-                +"\nPilha Um: "+ PilhaUm.exibirPilha() 
-                + "\nPilha Dois: "+PilhaDois.exibirPilha();
-    }
-
+    
     private IPilhaEstatica obterTorre(int topo) throws Exception {
 
         if (topo < 0 || topo > this.TamanhoDasPilhas) {
