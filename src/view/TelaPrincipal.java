@@ -15,14 +15,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private final ImageIcon icon2;
     private final ImageIcon icon3;
     private final ImageIcon icon4;
-
+    
     private int origem = 0;
     private int destino = 0;
+    private int contadorVitorias;
 
     public TelaPrincipal() throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
-
+        
+          contadorVitorias = 0;
         jogoDeHanoi = new JogoDeHanoi(4);
 
         icon1 = new ImageIcon("src\\barras\\barra1.png");
@@ -66,6 +68,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtJogadas = new javax.swing.JLabel();
         txtErro = new javax.swing.JLabel();
+        txtVitorias = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jInternalFrame1.setVisible(true);
 
@@ -181,6 +185,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtErro.setForeground(new java.awt.Color(204, 0, 0));
         txtErro.setToolTipText("");
 
+        txtVitorias.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtVitorias.setText("0");
+
+        jLabel5.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        jLabel5.setText("Vitórias:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -241,7 +251,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(txtJogadas)
                 .addGap(119, 119, 119)
                 .addComponent(txtErro)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtVitorias)
+                .addGap(98, 98, 98))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +264,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtJogadas)
-                    .addComponent(txtErro))
+                    .addComponent(txtErro)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(txtVitorias)))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -432,7 +449,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void resetarJogo() throws Exception{
           jogoDeHanoi = new JogoDeHanoi(4);
-
+          
+        contadorVitorias++;
+        txtVitorias.setText(""+contadorVitorias);
         this.inicialBarra1.setIcon(icon4);
         this.inicialBarra2.setIcon(icon3);
         this.inicialBarra3.setIcon(icon2);
@@ -442,6 +461,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.DoisBarra2.setIcon(null);
         this.DoisBarra3.setIcon(null);
         this.DoisBarra4.setIcon(null);
+        
         
     }
     
@@ -621,7 +641,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel txtErro;
     private javax.swing.JLabel txtJogadas;
+    private javax.swing.JLabel txtVitorias;
     // End of variables declaration//GEN-END:variables
 }
