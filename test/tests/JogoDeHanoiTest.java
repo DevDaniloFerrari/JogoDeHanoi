@@ -65,4 +65,8 @@ public class JogoDeHanoiTest {
         Assert.assertEquals(resultado, "• Pilha Inicial: 4;3;2;1;\n• Pilha Um: null;null;null;null;\n• Pilha Dois: null;null;null;null;");
     }
     
+    @Test
+    public void testOrigemVazio(){
+        Assert.assertFalse(jogoDeHanoi.getOrigem(1).isEmpty());
+    }
 }
