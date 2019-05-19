@@ -7,7 +7,7 @@ Danilo Ferrari - RA: 21086355
 Manoel Merlin - RA: 21154363
 Lucas Oliveira - RA:  21094755
 
-*/
+ */
 package tests;
 
 import jogo.JogoDeHanoi;
@@ -56,11 +56,11 @@ public class JogoDeHanoiTest {
         jogoDeHanoi.fazerJogada(1, 3);
         jogoDeHanoi.fazerJogada(2, 3);
 
-
         Assert.assertEquals(true, jogoDeHanoi.terminou());
 
     }
-     @Test
+
+    @Test
     public void testNumeroDeJogadas() throws Exception {
         jogoDeHanoi.fazerJogada(1, 2);
         jogoDeHanoi.fazerJogada(1, 3);
@@ -68,25 +68,26 @@ public class JogoDeHanoiTest {
 
         Assert.assertEquals(3, jogoDeHanoi.getNumeroJogadas());
     }
-    
+
     @Test
-    public void testImprimir(){
+    public void testImprimir() {
         String resultado = jogoDeHanoi.imprimir();
         Assert.assertEquals(resultado, "• Pilha Inicial: 4;3;2;1;\n• Pilha Um: null;null;null;null;\n• Pilha Dois: null;null;null;null;");
     }
-    
+
     @Test
-    public void testOrigemVazio(){
+    public void testOrigemVazio() {
         Assert.assertFalse(jogoDeHanoi.getOrigem(1).isEmpty());
     }
-    
+
     @Test
-    public void testDestinoVazio(){
-    Assert.assertTrue(jogoDeHanoi.getDestino(2).isEmpty());
+    public void testDestinoVazio() {
+        Assert.assertTrue(jogoDeHanoi.getDestino(2).isEmpty());
 
     }
+
     @Test
-    public void testDestinoIgualOrigem() throws Exception{
+    public void testDestinoIgualOrigem() throws Exception {
         Assert.assertFalse(jogoDeHanoi.fazerJogada(1, 1));
     }
 }

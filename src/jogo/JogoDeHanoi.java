@@ -7,7 +7,7 @@ Danilo Ferrari - RA: 21086355
 Manoel Merlin - RA: 21154363
 Lucas Oliveira - RA: 21094755
 
-*/
+ */
 package jogo;
 
 import pilha.estatica.classes.PilhaEstatica;
@@ -19,8 +19,8 @@ public class JogoDeHanoi {
     private final IPilhaEstatica PilhaInicial, PilhaUm, PilhaDois;
     private final int TamanhoDasPilhas;
     private int NumeroDeJogadas;
-    private   IPilhaEstatica origem = null;
-    private    IPilhaEstatica destino = null;
+    private IPilhaEstatica origem = null;
+    private IPilhaEstatica destino = null;
 
     public JogoDeHanoi(int tamanhoDasPilhas) throws Exception {
         this.TamanhoDasPilhas = tamanhoDasPilhas;
@@ -37,7 +37,6 @@ public class JogoDeHanoi {
     }
 
     public boolean fazerJogada(int numeroDaTorreDeOrigem, int numeroDaTorreDeDestino) throws Exception {
-
 
         if (numeroDaTorreDeOrigem == 0 || numeroDaTorreDeDestino == 0) {
             return false;
@@ -73,7 +72,7 @@ public class JogoDeHanoi {
         }
 
         if (destino.isFull()) {
-           System.out.println("Destino está cheio!");
+            System.out.println("Destino está cheio!");
             return false;
         }
 
@@ -86,15 +85,15 @@ public class JogoDeHanoi {
         } catch (PilhaEstaticaException ex) {
             topoDoDestino = 0;
         }
-       
-    if(!(destino.isEmpty())){    
-        if (topoDaOrigem > topoDoDestino) {
-            return false;
+
+        if (!(destino.isEmpty())) {
+            if (topoDaOrigem > topoDoDestino) {
+                return false;
+            }
         }
-    }
         destino.push(origem.pop());
-        if(destino != origem){
-        this.NumeroDeJogadas++;
+        if (destino != origem) {
+            this.NumeroDeJogadas++;
         }
         System.out.println(getNumeroJogadas());
         System.out.println(terminou());
@@ -103,7 +102,7 @@ public class JogoDeHanoi {
     }
 
     public boolean terminou() {
-        if(this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()){
+        if (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()) {
             this.NumeroDeJogadas = 0;
             return true;
         }
@@ -119,20 +118,20 @@ public class JogoDeHanoi {
     public int getNumeroJogadas() {
         return NumeroDeJogadas;
     }
-    
-    public IPilhaEstatica getPilhaInicial(){
+
+    public IPilhaEstatica getPilhaInicial() {
         return PilhaInicial;
     }
-    
-    public IPilhaEstatica getPilhaUm(){
+
+    public IPilhaEstatica getPilhaUm() {
         return PilhaUm;
     }
-    
-     public IPilhaEstatica getPilhaDois(){
+
+    public IPilhaEstatica getPilhaDois() {
         return PilhaDois;
     }
-     
-     public IPilhaEstatica getOrigem(int numeroTorreOrigem){
+
+    public IPilhaEstatica getOrigem(int numeroTorreOrigem) {
         switch (numeroTorreOrigem) {
             case 1:
                 origem = PilhaInicial;
@@ -143,12 +142,12 @@ public class JogoDeHanoi {
             case 3:
                 origem = PilhaDois;
                 break;
-        }        
-        
+        }
+
         return origem;
-     }
-     
-     public IPilhaEstatica getDestino(int numeroTorreDestino){
+    }
+
+    public IPilhaEstatica getDestino(int numeroTorreDestino) {
         switch (numeroTorreDestino) {
             case 1:
                 destino = PilhaInicial;
@@ -161,5 +160,5 @@ public class JogoDeHanoi {
                 break;
         }
         return destino;
-     }
+    }
 }

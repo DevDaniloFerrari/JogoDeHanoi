@@ -7,7 +7,7 @@ Danilo Ferrari - RA: 21086355
 Manoel Merlin - RA: 21154363
 Lucas Oliveira - RA: 21094755
 
-*/
+ */
 package view;
 
 import java.util.logging.Level;
@@ -19,23 +19,23 @@ import jogo.JogoDeHanoi;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    private  JogoDeHanoi jogoDeHanoi;
+    private JogoDeHanoi jogoDeHanoi;
 
     private final ImageIcon icon1;
     private final ImageIcon icon2;
     private final ImageIcon icon3;
     private final ImageIcon icon4;
-    
+
     private int origem = 0;
     private int destino = 0;
     private int contadorVitorias;
 
     public TelaPrincipal() throws Exception {
         initComponents();
-        
+
         this.setLocationRelativeTo(null);
-        
-          contadorVitorias = 0;
+
+        contadorVitorias = 0;
         jogoDeHanoi = new JogoDeHanoi(4);
 
         icon1 = new ImageIcon("src\\barras\\barra1.png");
@@ -459,41 +459,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
         destino = 0;
     }
 
-    private void resetarJogo() throws Exception{
-          jogoDeHanoi = new JogoDeHanoi(4);
-          
+    private void resetarJogo() throws Exception {
+        jogoDeHanoi = new JogoDeHanoi(4);
+
         contadorVitorias++;
-        txtVitorias.setText(""+contadorVitorias);
+        txtVitorias.setText("" + contadorVitorias);
         this.inicialBarra1.setIcon(icon4);
         this.inicialBarra2.setIcon(icon3);
         this.inicialBarra3.setIcon(icon2);
         this.inicialBarra4.setIcon(icon1);
-        
+
         this.DoisBarra1.setIcon(null);
         this.DoisBarra2.setIcon(null);
         this.DoisBarra3.setIcon(null);
         this.DoisBarra4.setIcon(null);
-        
-        
+
     }
-    
+
     //BTN TORRE ORIGEM
     private void btnInserirTorreInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirTorreInicialActionPerformed
-    destino  = 1;
+        destino = 1;
 
-            try {
-               if( jogoDeHanoi.fazerJogada(origem, destino)){
+        try {
+            if (jogoDeHanoi.fazerJogada(origem, destino)) {
                 this.moverBarra(origem, destino);
-                    txtErro.setText("");
-                    txtJogadas.setText(""+jogoDeHanoi.getNumeroJogadas());
-            }else{
-                   txtErro.setText("Você não pode fazer isso.");
-               }
-            } catch (Exception ex) {
-                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                txtErro.setText("");
+                txtJogadas.setText("" + jogoDeHanoi.getNumeroJogadas());
+            } else {
+                txtErro.setText("Você não pode fazer isso.");
             }
-        
-        if(jogoDeHanoi.terminou()){
+        } catch (Exception ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (jogoDeHanoi.terminou()) {
             JOptionPane.showMessageDialog(null, "Parabéns você ganhou!");
             try {
                 resetarJogo();
@@ -501,25 +500,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
 
     }//GEN-LAST:event_btnInserirTorreInicialActionPerformed
     //BTN TORRE UM
     private void btnInserirAuxiliarUmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirAuxiliarUmActionPerformed
-  destino  = 2;
-            try {
-               if( jogoDeHanoi.fazerJogada(origem, destino)){
+        destino = 2;
+        try {
+            if (jogoDeHanoi.fazerJogada(origem, destino)) {
                 this.moverBarra(origem, destino);
-                 txtErro.setText("");
-                 txtJogadas.setText(""+jogoDeHanoi.getNumeroJogadas());
-            }else{
-                   txtErro.setText("Você não pode fazer isso.");
-               }
-            } catch (Exception ex) {
-                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                txtErro.setText("");
+                txtJogadas.setText("" + jogoDeHanoi.getNumeroJogadas());
+            } else {
+                txtErro.setText("Você não pode fazer isso.");
             }
-            
-          if(jogoDeHanoi.terminou()){
+        } catch (Exception ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (jogoDeHanoi.terminou()) {
             JOptionPane.showMessageDialog(null, "Parabéns você ganhou!");
             try {
                 resetarJogo();
@@ -532,19 +531,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInserirAuxiliarUmActionPerformed
     //BTN TORRE DOIS
     private void btnInserirAuxiliarDoisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirAuxiliarDoisActionPerformed
-    destino = 3;
-            try {
-               if( jogoDeHanoi.fazerJogada(origem, destino)){
+        destino = 3;
+        try {
+            if (jogoDeHanoi.fazerJogada(origem, destino)) {
                 this.moverBarra(origem, destino);
-                 txtErro.setText("");
-                 txtJogadas.setText(""+jogoDeHanoi.getNumeroJogadas());
-               }else{
-                   txtErro.setText("Você não pode fazer isso.");
-               }
-            } catch (Exception ex) {
-                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                txtErro.setText("");
+                txtJogadas.setText("" + jogoDeHanoi.getNumeroJogadas());
+            } else {
+                txtErro.setText("Você não pode fazer isso.");
             }
-              if(jogoDeHanoi.terminou()){
+        } catch (Exception ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (jogoDeHanoi.terminou()) {
             JOptionPane.showMessageDialog(null, "Parabéns você ganhou!");
             try {
                 resetarJogo();
@@ -552,31 +551,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
     }//GEN-LAST:event_btnInserirAuxiliarDoisActionPerformed
 //BOTOES SELECIONAR
-    
+
     private void btnSelecionarOrigemInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarOrigemInicialActionPerformed
-        if(jogoDeHanoi.getOrigem(1).isEmpty()){
+        if (jogoDeHanoi.getOrigem(1).isEmpty()) {
             JOptionPane.showMessageDialog(null, "Essa torre está vazia!");
-        }else{
-        origem = 1;
+        } else {
+            origem = 1;
         }
     }//GEN-LAST:event_btnSelecionarOrigemInicialActionPerformed
 
     private void btnSelecionarOrigemUmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarOrigemUmActionPerformed
-        if(jogoDeHanoi.getOrigem(2).isEmpty()){
+        if (jogoDeHanoi.getOrigem(2).isEmpty()) {
             JOptionPane.showMessageDialog(null, "Essa torre está vazia!");
-        }else{
-        origem =2;
+        } else {
+            origem = 2;
         }
     }//GEN-LAST:event_btnSelecionarOrigemUmActionPerformed
 
     private void btnSelecionarOrigemDoisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarOrigemDoisActionPerformed
-        if(jogoDeHanoi.getOrigem(3).isEmpty()){
+        if (jogoDeHanoi.getOrigem(3).isEmpty()) {
             JOptionPane.showMessageDialog(null, "Essa torre está vazia!");
-        }else{
-        origem = 3;
+        } else {
+            origem = 3;
         }
     }//GEN-LAST:event_btnSelecionarOrigemDoisActionPerformed
 
