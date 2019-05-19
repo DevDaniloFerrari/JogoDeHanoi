@@ -3,7 +3,7 @@ package pilha.estatica.classes;
 import pilha.estatica.exceptions.PilhaEstaticaException;
 import pilha.estatica.interfaces.IPilhaEstatica;
 
-public class PilhaEstatica<T> implements IPilhaEstatica {
+public class PilhaEstatica implements IPilhaEstatica {
 
     public PilhaEstatica(int tamanhoDaPilha) {
         this.Dados = new Object[tamanhoDaPilha];

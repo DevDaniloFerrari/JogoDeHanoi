@@ -1,6 +1,7 @@
 package jogo;
 
 import pilha.estatica.classes.PilhaEstatica;
+import pilha.estatica.exceptions.PilhaEstaticaException;
 import pilha.estatica.interfaces.IPilhaEstatica;
 
 public class JogoDeHanoi {
@@ -11,14 +12,14 @@ public class JogoDeHanoi {
 
     public JogoDeHanoi(int tamanhoDasPilhas) throws Exception {
         this.TamanhoDasPilhas = tamanhoDasPilhas;
+
         this.PilhaInicial = new PilhaEstatica(tamanhoDasPilhas);
-
-        for (int i = tamanhoDasPilhas; i > 0; i--) {
-            this.PilhaInicial.push(i);
-        }
-
         this.PilhaUm = new PilhaEstatica(tamanhoDasPilhas);
         this.PilhaDois = new PilhaEstatica(tamanhoDasPilhas);
+
+        for (int i = tamanhoDasPilhas; i > 0; i--) {
+            this.PilhaInicial.push((int) i);
+        }
 
         this.NumeroDeJogadas = 0;
     }
@@ -35,10 +36,13 @@ public class JogoDeHanoi {
         switch (numeroDaTorreDeOrigem) {
             case 1:
                 origem = PilhaInicial;
+                break;
             case 2:
                 origem = PilhaUm;
+                break;
             case 3:
                 origem = PilhaDois;
+                break;
         }
 
         if (origem.isEmpty()) {
@@ -48,17 +52,30 @@ public class JogoDeHanoi {
         switch (numeroDaTorreDeDestino) {
             case 1:
                 destino = PilhaInicial;
+                break;
             case 2:
                 destino = PilhaUm;
+                break;
             case 3:
                 destino = PilhaDois;
+                break;
         }
 
         if (destino.isFull()) {
             return false;
         }
 
-        if (((int) origem.peek()) > ((int) destino.peek())) {
+        int topoDaOrigem = (int) origem.peek();
+        int topoDoDestino = 0;
+
+        try {
+            topoDoDestino = (int) destino.peek();
+
+        } catch (PilhaEstaticaException ex) {
+            topoDoDestino = 0;
+        }
+
+        if (topoDaOrigem < topoDoDestino) {
             return false;
         }
 
