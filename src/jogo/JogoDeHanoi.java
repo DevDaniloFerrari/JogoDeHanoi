@@ -93,7 +93,11 @@ public class JogoDeHanoi {
     }
 
     public boolean terminou() {
-        return (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty());
+        if(this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()){
+            this.NumeroDeJogadas = 0;
+            return true;
+        }
+        return false;
     }
 
     public String imprimir() {
