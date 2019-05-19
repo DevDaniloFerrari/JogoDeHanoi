@@ -15,6 +15,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private final ImageIcon icon3;
     private final ImageIcon icon4;
 
+    private int origem = 0;
+    private int destino = 0;
+
     public TelaPrincipal() throws Exception {
         initComponents();
 
@@ -25,7 +28,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         icon3 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra3.png");
         icon4 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra4.png");
 
-        this.inicialBarra2.setIcon(icon4);
+        this.inicialBarra1.setIcon(icon4);
         this.inicialBarra2.setIcon(icon3);
         this.inicialBarra3.setIcon(icon2);
         this.inicialBarra4.setIcon(icon1);
@@ -112,15 +115,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(jLabel2)
-                        .addGap(132, 132, 132)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(inicialBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,14 +128,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(UmBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(UmBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(UmBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UmBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                            .addComponent(UmBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(112, 112, 112)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DoisBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoisBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoisBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoisBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DoisBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DoisBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DoisBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DoisBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(56, 56, 56))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(98, 98, 98)
                 .addComponent(btnInserirTorreOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,11 +160,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel1)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
@@ -201,53 +207,45 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public void moverBarra(int origem, int destino) {
         this.colocarIconeNoDestino(destino, this.obterIcone(origem));
+        this.zerarLocalizadores();
     }
 
     private void colocarIconeNoDestino(int numeroDaPilha, Icon icone) {
         switch (numeroDaPilha) {
             case 1: {
-                if (this.inicialBarra4.getIcon() != null) {
-                    this.inicialBarra4.setIcon(icone);
-                }
-                if (this.inicialBarra3.getIcon() != null) {
-                    this.inicialBarra3.setIcon(icone);
-                }
-                if (this.inicialBarra2.getIcon() != null) {
-                    this.inicialBarra2.setIcon(icone);
-                }
-                if (this.inicialBarra1.getIcon() != null) {
+                if (this.inicialBarra1.getIcon() == null) {
                     this.inicialBarra1.setIcon(icone);
+                } else if (this.inicialBarra2.getIcon() == null) {
+                    this.inicialBarra2.setIcon(icone);
+                } else if (this.inicialBarra3.getIcon() == null) {
+                    this.inicialBarra3.setIcon(icone);
+                } else {
+                    this.inicialBarra4.setIcon(icone);
                 }
                 break;
             }
             case 2: {
-                if (this.UmBarra4.getIcon() != null) {
-                    this.UmBarra4.setIcon(icone);
-                }
-                if (this.UmBarra3.getIcon() != null) {
-                    this.UmBarra3.setIcon(icone);
-                }
-                if (this.UmBarra2.getIcon() != null) {
-                    this.UmBarra2.setIcon(icone);
-                }
-                if (this.UmBarra1.getIcon() != null) {
+                if (this.UmBarra1.getIcon() == null) {
                     this.UmBarra1.setIcon(icone);
+                } else if (this.UmBarra2.getIcon() == null) {
+                    this.UmBarra2.setIcon(icone);
+                } else if (this.UmBarra3.getIcon() == null) {
+                    this.UmBarra3.setIcon(icone);
+                } else {
+                    this.UmBarra4.setIcon(icone);
                 }
                 break;
             }
 
             case 3: {
-                if (this.DoisBarra4.getIcon() != null) {
-                    this.DoisBarra4.setIcon(icone);
-                }
-                if (this.DoisBarra3.getIcon() != null) {
-                    this.DoisBarra3.setIcon(icone);
-                }
-                if (this.DoisBarra2.getIcon() != null) {
-                    this.DoisBarra2.setIcon(icone);
-                }
-                if (this.DoisBarra1.getIcon() != null) {
+                if (this.DoisBarra1.getIcon() == null) {
                     this.DoisBarra1.setIcon(icone);
+                } else if (this.DoisBarra2.getIcon() == null) {
+                    this.DoisBarra2.setIcon(icone);
+                } else if (this.DoisBarra3.getIcon() == null) {
+                    this.DoisBarra3.setIcon(icone);
+                } else{
+                    this.DoisBarra4.setIcon(icone);
                 }
                 break;
             }
@@ -332,22 +330,51 @@ public class TelaPrincipal extends javax.swing.JFrame {
         return null;
     }
 
+    private void zerarLocalizadores() {
+        origem = 0;
+        destino = 0;
+    }
+
     //BTN TORRE ORIGEM
     private void btnInserirTorreOrigemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirTorreOrigemActionPerformed
+
+        if (origem == 0) {
+            origem = 1;
+        } else {
+            destino = 1;
+        }
+
+        if (destino != 0) {
+            this.moverBarra(origem, destino);
+        }
 
     }//GEN-LAST:event_btnInserirTorreOrigemActionPerformed
     //BTN TORRE UM
     private void btnInserirAuxiliarUmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirAuxiliarUmActionPerformed
+        if (origem == 0) {
+            origem = 2;
+        } else {
+            destino = 2;
+        }
 
-        this.moverBarra(1, 2);
-        this.moverBarra(1, 2);
+        if (destino != 0) {
+            this.moverBarra(origem, destino);
+        }
 
 
     }//GEN-LAST:event_btnInserirAuxiliarUmActionPerformed
     //BTN TORRE DOIS
     private void btnInserirAuxiliarDoisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirAuxiliarDoisActionPerformed
 
+        if (origem == 0) {
+            origem = 3;
+        } else {
+            destino = 3;
+        }
 
+        if (destino != 0) {
+            this.moverBarra(origem, destino);
+        }
     }//GEN-LAST:event_btnInserirAuxiliarDoisActionPerformed
 
     /**
