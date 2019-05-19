@@ -9,6 +9,8 @@ public class JogoDeHanoi {
     private final IPilhaEstatica PilhaInicial, PilhaUm, PilhaDois;
     private final int TamanhoDasPilhas;
     private int NumeroDeJogadas;
+    private   IPilhaEstatica origem = null;
+    private    IPilhaEstatica destino = null;
 
     public JogoDeHanoi(int tamanhoDasPilhas) throws Exception {
         this.TamanhoDasPilhas = tamanhoDasPilhas;
@@ -26,11 +28,9 @@ public class JogoDeHanoi {
 
     public boolean fazerJogada(int numeroDaTorreDeOrigem, int numeroDaTorreDeDestino) throws Exception {
 
-        IPilhaEstatica origem = null;
-        IPilhaEstatica destino = null;
 
         if (numeroDaTorreDeOrigem == 0 || numeroDaTorreDeDestino == 0) {
-            throw new Exception("O número de identificação das torres não pode ser zero");
+            return false;
         }
 
         switch (numeroDaTorreDeOrigem) {
@@ -46,6 +46,7 @@ public class JogoDeHanoi {
         }
 
         if (origem.isEmpty()) {
+            System.out.println("Origem vazia!");
             return false;
         }
 
@@ -62,6 +63,7 @@ public class JogoDeHanoi {
         }
 
         if (destino.isFull()) {
+           System.out.println("Destino está cheio!");
             return false;
         }
 
@@ -74,14 +76,19 @@ public class JogoDeHanoi {
         } catch (PilhaEstaticaException ex) {
             topoDoDestino = 0;
         }
-
-        if (topoDaOrigem < topoDoDestino) {
+       
+    if(!(destino.isEmpty())){    
+        if (topoDaOrigem > topoDoDestino) {
             return false;
         }
-
+    }
         destino.push(origem.pop());
-
+        if(destino != origem){
         this.NumeroDeJogadas++;
+        }
+        System.out.println(imprimir());
+        System.out.println(getNumeroJogadas());
+        System.out.println(terminou());
 
         return true;
     }
@@ -99,4 +106,47 @@ public class JogoDeHanoi {
     public int getNumeroJogadas() {
         return NumeroDeJogadas;
     }
+    
+    public IPilhaEstatica getPilhaInicial(){
+        return PilhaInicial;
+    }
+    
+    public IPilhaEstatica getPilhaUm(){
+        return PilhaUm;
+    }
+    
+     public IPilhaEstatica getPilhaDois(){
+        return PilhaDois;
+    }
+     
+     public IPilhaEstatica getOrigem(int numeroTorreOrigem){
+        switch (numeroTorreOrigem) {
+            case 1:
+                origem = PilhaInicial;
+                break;
+            case 2:
+                origem = PilhaUm;
+                break;
+            case 3:
+                origem = PilhaDois;
+                break;
+        }        
+        
+        return origem;
+     }
+     
+     public IPilhaEstatica getDestino(int numeroTorreDestino){
+        switch (numeroTorreDestino) {
+            case 1:
+                destino = PilhaInicial;
+                break;
+            case 2:
+                destino = PilhaUm;
+                break;
+            case 3:
+                destino = PilhaDois;
+                break;
+        }
+        return destino;
+     }
 }
