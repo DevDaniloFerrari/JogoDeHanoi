@@ -1,16 +1,29 @@
 package view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import jogo.JogoDeHanoi;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    ImageIcon icon1 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra1.png");
-    ImageIcon icon2 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra2.png");
-    ImageIcon icon3 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra3.png");
-    ImageIcon icon4 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra4.png");
+    private final JogoDeHanoi jogoDeHanoi;
 
-    public TelaPrincipal() {
+    private final ImageIcon icon1;
+    private final ImageIcon icon2;
+    private final ImageIcon icon3;
+    private final ImageIcon icon4;
+
+    public TelaPrincipal() throws Exception {
         initComponents();
+
+        jogoDeHanoi = new JogoDeHanoi(4);
+
+        icon1 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra1.png");
+        icon2 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra2.png");
+        icon3 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra3.png");
+        icon4 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra4.png");
 
         this.inicialBarra1.setIcon(icon4);
         this.inicialBarra2.setIcon(icon3);
@@ -186,12 +199,152 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void moverBarra(int origem, int destino) {
+        this.colocarIconeNoDestino(destino, this.obterIcone(origem));
+    }
+
+    private void colocarIconeNoDestino(int numeroDaPilha, Icon icone) {
+        switch (numeroDaPilha) {
+            case 1: {
+                if (this.inicialBarra4.getIcon() != null) {
+                    this.inicialBarra4.setIcon(icone);
+                }
+                if (this.inicialBarra3.getIcon() != null) {
+                    this.inicialBarra3.setIcon(icone);
+                }
+                if (this.inicialBarra2.getIcon() != null) {
+                    this.inicialBarra2.setIcon(icone);
+                }
+                if (this.inicialBarra1.getIcon() != null) {
+                    this.inicialBarra1.setIcon(icone);
+                }
+                break;
+            }
+            case 2: {
+                if (this.UmBarra4.getIcon() != null) {
+                    this.UmBarra4.setIcon(icone);
+                }
+                if (this.UmBarra3.getIcon() != null) {
+                    this.UmBarra3.setIcon(icone);
+                }
+                if (this.UmBarra2.getIcon() != null) {
+                    this.UmBarra2.setIcon(icone);
+                }
+                if (this.UmBarra1.getIcon() != null) {
+                    this.UmBarra1.setIcon(icone);
+                }
+                break;
+            }
+        }
+
+    
+
+case 3: {
+                if (this.DoisBarra4.getIcon() != null) {
+                    this.DoisBarra4.setIcon(icone);
+                }
+                if (this.DoisBarra3.getIcon() != null) {
+                    this.DoisBarra3.setIcon(icone);
+                }
+                if (this.DoisBarra2.getIcon() != null) {
+                    this.DoisBarra2.setIcon(icone);
+                }
+                if (this.DoisBarra1.getIcon() != null) {
+                    this.DoisBarra1.setIcon(icone);
+                }
+                break;
+            }
+        }
+    }
+
+    private Icon obterIcone(int numeroDaPilha) {
+
+        Icon retorno;
+
+        switch (numeroDaPilha) {
+            case 1: {
+                if (this.inicialBarra4.getIcon() != null) {
+                    retorno = this.inicialBarra4.getIcon();
+                    this.inicialBarra4.setIcon(null);
+                    return retorno;
+                }
+                if (this.inicialBarra3.getIcon() != null) {
+                    retorno = this.inicialBarra3.getIcon();
+                    this.inicialBarra3.setIcon(null);
+                    return retorno;
+                }
+                if (this.inicialBarra2.getIcon() != null) {
+                    retorno = this.inicialBarra2.getIcon();
+                    this.inicialBarra2.setIcon(null);
+                    return retorno;
+                }
+                if (this.inicialBarra1.getIcon() != null) {
+                    retorno = this.inicialBarra1.getIcon();
+                    this.inicialBarra1.setIcon(null);
+                    return retorno;
+                }
+                break;
+            }
+            case 2: {
+                if (this.UmBarra4.getIcon() != null) {
+                    retorno = this.UmBarra4.getIcon();
+                    this.UmBarra4.setIcon(null);
+                    return retorno;
+                }
+                if (this.UmBarra3.getIcon() != null) {
+                    retorno = this.UmBarra3.getIcon();
+                    this.UmBarra3.setIcon(null);
+                    return retorno;
+                }
+                if (this.UmBarra2.getIcon() != null) {
+                    retorno = this.UmBarra2.getIcon();
+                    this.UmBarra2.setIcon(null);
+                    return retorno;
+                }
+                if (this.UmBarra1.getIcon() != null) {
+                    retorno = this.UmBarra1.getIcon();
+                    this.UmBarra1.setIcon(null);
+                    return retorno;
+                }
+                break;
+            }
+            case 3: {
+                if (this.DoisBarra4.getIcon() != null) {
+                    retorno = this.DoisBarra4.getIcon();
+                    this.DoisBarra4.setIcon(null);
+                    return retorno;
+                }
+                if (this.DoisBarra3.getIcon() != null) {
+                    retorno = this.DoisBarra3.getIcon();
+                    this.DoisBarra3.setIcon(null);
+                    return retorno;
+                }
+                if (this.DoisBarra2.getIcon() != null) {
+                    retorno = this.DoisBarra2.getIcon();
+                    this.DoisBarra2.setIcon(null);
+                    return retorno;
+                }
+                if (this.DoisBarra1.getIcon() != null) {
+                    retorno = this.DoisBarra1.getIcon();
+                    this.DoisBarra1.setIcon(null);
+                    return retorno;
+                }
+                break;
+            }
+        }
+        return null;
+    }
+
     //BTN TORRE ORIGEM
     private void btnInserirTorreOrigemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirTorreOrigemActionPerformed
 
     }//GEN-LAST:event_btnInserirTorreOrigemActionPerformed
     //BTN TORRE UM
     private void btnInserirAuxiliarUmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirAuxiliarUmActionPerformed
+
+        this.moverBarra(1, 2);
+        this.moverBarra(1, 2);
+
 
     }//GEN-LAST:event_btnInserirAuxiliarUmActionPerformed
     //BTN TORRE DOIS
@@ -214,23 +367,57 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipal.class
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TelaPrincipal.class
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TelaPrincipal.class
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaPrincipal.class
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipal().setVisible(true);
+                try {
+                    new TelaPrincipal().setVisible(true);
+                
+
+
+
+} catch (Exception ex) {
+                    Logger.getLogger(TelaPrincipal.class
+
+.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
