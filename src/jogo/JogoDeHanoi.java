@@ -24,25 +24,28 @@ public class JogoDeHanoi {
     }
 
     public boolean fazerJogada(int numeroNaTorreDeOrigem, int numeroNaTorreDeDestino) throws Exception {
-        IPilhaEstatica pilhaDeOrigem = this.obterTorre(numeroNaTorreDeOrigem);
-        IPilhaEstatica pilhaDeDestino = this.obterTorre(numeroNaTorreDeDestino);
-        
-        if(pilhaDeOrigem==null){
-            return false;
+          IPilhaEstatica pilhaDeDestino = null;
+          IPilhaEstatica pilhaDeOrigem = this.PilhaInicial;
+        if(numeroNaTorreDeDestino == 1){
+      pilhaDeDestino = this.PilhaUm;
+        }else if (numeroNaTorreDeDestino ==2){
+      pilhaDeDestino = this.PilhaDois;
         }
+       //      if(pilhaDeOrigem==null){
+          //       return false;
+     //        }
          
-        if(pilhaDeOrigem.isEmpty()){
-            return false;
-        }
+       //      if(pilhaDeOrigem.isEmpty()){
+          //       return false;
+       //      }
         
-        if(pilhaDeDestino.isFull()){
-            return false;
-        }
+      //  if(pilhaDeDestino.isFull()){
+       //     return false;
+        //}
         
-        if((int)pilhaDeOrigem.peek()>(int)pilhaDeDestino.peek()){
-            return false;
-        }
-        
+      //       if((int)pilhaDeOrigem.peek()>(int)pilhaDeDestino.peek()){
+        //    return false;
+     //        }
         pilhaDeDestino.push(pilhaDeOrigem.pop());
         this.NumeroDeJogadas++;
         
@@ -81,5 +84,9 @@ public class JogoDeHanoi {
         }
         
         return null;
+    }
+    
+    public int getNumeroJogadas(){
+        return NumeroDeJogadas;
     }
 }
