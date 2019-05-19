@@ -69,4 +69,10 @@ public class JogoDeHanoiTest {
     public void testOrigemVazio(){
         Assert.assertFalse(jogoDeHanoi.getOrigem(1).isEmpty());
     }
+    
+    @Test
+    public void testDestinoVazio(){
+    Assert.assertTrue(jogoDeHanoi.getDestino(2).isEmpty());
+
+    }
 }
