@@ -86,7 +86,6 @@ public class JogoDeHanoi {
         if(destino != origem){
         this.NumeroDeJogadas++;
         }
-        System.out.println(imprimir());
         System.out.println(getNumeroJogadas());
         System.out.println(terminou());
 
@@ -94,7 +93,7 @@ public class JogoDeHanoi {
     }
 
     public boolean terminou() {
-        return (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()) || (this.PilhaInicial.isEmpty() & this.PilhaDois.isEmpty());
+        return (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty());
     }
 
     public String imprimir() {
