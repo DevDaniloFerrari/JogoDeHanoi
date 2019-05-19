@@ -26,7 +26,6 @@ public class JogoDeHanoiTest {
 
     @Test
     public void testTerminarJogada() throws Exception {
-        System.out.println(jogoDeHanoi.imprimir());
         jogoDeHanoi.fazerJogada(1, 2);
         jogoDeHanoi.fazerJogada(1, 3);
         jogoDeHanoi.fazerJogada(2, 3);
@@ -47,13 +46,11 @@ public class JogoDeHanoiTest {
         jogoDeHanoi.fazerJogada(1, 3);
         jogoDeHanoi.fazerJogada(2, 3);
 
-        System.out.println(jogoDeHanoi.imprimir());
 
         Assert.assertEquals(true, jogoDeHanoi.terminou());
 
     }
-
-    @Test
+     @Test
     public void testNumeroDeJogadas() throws Exception {
         jogoDeHanoi.fazerJogada(1, 2);
         jogoDeHanoi.fazerJogada(1, 3);
@@ -61,5 +58,11 @@ public class JogoDeHanoiTest {
 
         Assert.assertEquals(3, jogoDeHanoi.getNumeroJogadas());
     }
-
+    
+    @Test
+    public void testImprimir(){
+        String resultado = jogoDeHanoi.imprimir();
+        Assert.assertEquals(resultado, "• Pilha Inicial: 4;3;2;1;\n• Pilha Um: null;null;null;null;\n• Pilha Dois: null;null;null;null;");
+    }
+    
 }
