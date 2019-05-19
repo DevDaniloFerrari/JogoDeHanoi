@@ -9,7 +9,7 @@ import jogo.JogoDeHanoi;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    private final JogoDeHanoi jogoDeHanoi;
+    private  JogoDeHanoi jogoDeHanoi;
 
     private final ImageIcon icon1;
     private final ImageIcon icon2;
@@ -119,6 +119,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 btnInserirAuxiliarDoisActionPerformed(evt);
             }
         });
+
+        inicialBarra4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        inicialBarra1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        inicialBarra2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        inicialBarra3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        UmBarra4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        UmBarra1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        UmBarra2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        UmBarra3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        DoisBarra4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        DoisBarra2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        DoisBarra3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        DoisBarra1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         btnSelecionarOrigemInicial.setBackground(new java.awt.Color(255, 255, 102));
         btnSelecionarOrigemInicial.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
@@ -406,15 +430,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         destino = 0;
     }
 
+    private void resetarJogo() throws Exception{
+          jogoDeHanoi = new JogoDeHanoi(4);
+
+        this.inicialBarra1.setIcon(icon4);
+        this.inicialBarra2.setIcon(icon3);
+        this.inicialBarra3.setIcon(icon2);
+        this.inicialBarra4.setIcon(icon1);
+        
+        this.DoisBarra1.setIcon(null);
+        this.DoisBarra2.setIcon(null);
+        this.DoisBarra3.setIcon(null);
+        this.DoisBarra4.setIcon(null);
+        
+    }
+    
     //BTN TORRE ORIGEM
     private void btnInserirTorreInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirTorreInicialActionPerformed
-
-      /*  if (origem == 0) {
-            origem = 1;
-        } else {
-            destino = 1;
-        }*/
-      destino  = 1;
+    destino  = 1;
 
             try {
                if( jogoDeHanoi.fazerJogada(origem, destino)){
@@ -428,18 +461,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
         
-
+        if(jogoDeHanoi.terminou()){
+            JOptionPane.showMessageDialog(null, "Parabéns você ganhou!");
+            try {
+                resetarJogo();
+            } catch (Exception ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         
 
     }//GEN-LAST:event_btnInserirTorreInicialActionPerformed
     //BTN TORRE UM
     private void btnInserirAuxiliarUmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirAuxiliarUmActionPerformed
-  /*       if (origem == 0) {
-            origem = 2;
-        } else {
-            destino = 2;
-        }
-*/
   destino  = 2;
             try {
                if( jogoDeHanoi.fazerJogada(origem, destino)){
@@ -452,31 +486,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
-        
+            
+          if(jogoDeHanoi.terminou()){
+            JOptionPane.showMessageDialog(null, "Parabéns você ganhou!");
+            try {
+                resetarJogo();
+            } catch (Exception ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
 
     }//GEN-LAST:event_btnInserirAuxiliarUmActionPerformed
     //BTN TORRE DOIS
     private void btnInserirAuxiliarDoisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirAuxiliarDoisActionPerformed
-
-    /*    if (origem == 0) {
-            origem = 3;
-        } else {
-            destino = 3;
-        }
-*/
     destino = 3;
             try {
                if( jogoDeHanoi.fazerJogada(origem, destino)){
                 this.moverBarra(origem, destino);
                  txtErro.setText("");
                  txtJogadas.setText(""+jogoDeHanoi.getNumeroJogadas());
-            }else{
+               }else{
                    txtErro.setText("Você não pode fazer isso.");
                }
             } catch (Exception ex) {
                 Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
+              if(jogoDeHanoi.terminou()){
+            JOptionPane.showMessageDialog(null, "Parabéns você ganhou!");
+            try {
+                resetarJogo();
+            } catch (Exception ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         
     }//GEN-LAST:event_btnInserirAuxiliarDoisActionPerformed
 //BOTOES SELECIONAR
