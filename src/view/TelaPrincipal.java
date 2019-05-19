@@ -1,3 +1,13 @@
+/*
+
+APS - ESTRUTURA DE DADOS
+ALUNOS: 
+Lucas Rodrigues Souza - RA: 21069949
+Danilo Ferrari - RA: 21086355
+Manoel Merlin - RA: 21154363
+Lucas Oliveira - RA: 21094755
+
+*/
 package view;
 
 import java.util.logging.Level;
@@ -22,6 +32,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public TelaPrincipal() throws Exception {
         initComponents();
+        
         this.setLocationRelativeTo(null);
         
           contadorVitorias = 0;
@@ -261,13 +272,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtJogadas)
-                    .addComponent(txtErro)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
-                        .addComponent(txtVitorias)))
+                        .addComponent(txtVitorias))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(txtJogadas)
+                        .addComponent(txtErro)))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
