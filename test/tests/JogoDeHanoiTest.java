@@ -75,4 +75,8 @@ public class JogoDeHanoiTest {
     Assert.assertTrue(jogoDeHanoi.getDestino(2).isEmpty());
 
     }
+    @Test
+    public void testDestinoIgualOrigem() throws Exception{
+        Assert.assertFalse(jogoDeHanoi.fazerJogada(1, 1));
+    }
 }
