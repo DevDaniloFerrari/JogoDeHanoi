@@ -6,8 +6,8 @@ import pilha.estatica.interfaces.IPilhaEstatica;
 public class JogoDeHanoi {
 
     private final IPilhaEstatica PilhaInicial, PilhaUm, PilhaDois;
+    private final int TamanhoDasPilhas;
     private int NumeroDeJogadas;
-    private int TamanhoDasPilhas;
 
     public JogoDeHanoi(int tamanhoDasPilhas) throws Exception {
         this.TamanhoDasPilhas = tamanhoDasPilhas;
@@ -23,70 +23,63 @@ public class JogoDeHanoi {
         this.NumeroDeJogadas = 0;
     }
 
-    public boolean fazerJogada(int numeroNaTorreDeOrigem, int numeroNaTorreDeDestino) throws Exception {
-          IPilhaEstatica pilhaDeDestino = null;
-          IPilhaEstatica pilhaDeOrigem = this.PilhaInicial;
-        if(numeroNaTorreDeDestino == 1){
-      pilhaDeDestino = this.PilhaUm;
-        }else if (numeroNaTorreDeDestino ==2){
-      pilhaDeDestino = this.PilhaDois;
+    public boolean fazerJogada(int numeroDaTorreDeOrigem, int numeroDaTorreDeDestino) throws Exception {
+
+        IPilhaEstatica origem = null;
+        IPilhaEstatica destino = null;
+
+        if (numeroDaTorreDeOrigem == 0 || numeroDaTorreDeDestino == 0) {
+            throw new Exception("O número de identificação das torres não pode ser zero");
         }
-       //      if(pilhaDeOrigem==null){
-          //       return false;
-     //        }
-         
-       //      if(pilhaDeOrigem.isEmpty()){
-          //       return false;
-       //      }
-        
-      //  if(pilhaDeDestino.isFull()){
-       //     return false;
-        //}
-        
-      //       if((int)pilhaDeOrigem.peek()>(int)pilhaDeDestino.peek()){
-        //    return false;
-     //        }
-        pilhaDeDestino.push(pilhaDeOrigem.pop());
+
+        switch (numeroDaTorreDeOrigem) {
+            case 1:
+                origem = PilhaInicial;
+            case 2:
+                origem = PilhaUm;
+            case 3:
+                origem = PilhaDois;
+        }
+
+        if (origem.isEmpty()) {
+            return false;
+        }
+
+        switch (numeroDaTorreDeDestino) {
+            case 1:
+                destino = PilhaInicial;
+            case 2:
+                destino = PilhaUm;
+            case 3:
+                destino = PilhaDois;
+        }
+
+        if (destino.isFull()) {
+            return false;
+        }
+
+        if (((int) origem.peek()) > ((int) destino.peek())) {
+            return false;
+        }
+
+        destino.push(origem.pop());
+
         this.NumeroDeJogadas++;
-        
+
         return true;
     }
-         
-    public boolean terminou(){
-      return (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()) || ( this.PilhaInicial.isEmpty() & this.PilhaDois.isEmpty());
-    }
-    
-        public String imprimir(){
-        return "• Pilha Inicial: "+PilhaInicial.exibirPilha() 
-                +"\n• Pilha Um: "+ PilhaUm.exibirPilha() 
-                + "\n• Pilha Dois: "+PilhaDois.exibirPilha();
-    }
-    
-    private IPilhaEstatica obterTorre(int topo) throws Exception {
 
-        if (topo < 0 || topo > this.TamanhoDasPilhas) {
-            return null;
-        }
-        
-        if(!this.PilhaInicial.isEmpty()){
-            if(topo == (int)this.PilhaInicial.peek())
-                return this.PilhaInicial;
-        }
-        
-        if(!this.PilhaUm.isEmpty()){
-            if(topo == (int)this.PilhaUm.peek())
-                return this.PilhaUm;
-        }
-        
-        if(!this.PilhaDois.isEmpty()){
-            if(topo == (int)this.PilhaDois.peek())
-                return this.PilhaDois;
-        }
-        
-        return null;
+    public boolean terminou() {
+        return (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()) || (this.PilhaInicial.isEmpty() & this.PilhaDois.isEmpty());
     }
-    
-    public int getNumeroJogadas(){
+
+    public String imprimir() {
+        return "• Pilha Inicial: " + PilhaInicial.exibirPilha()
+                + "\n• Pilha Um: " + PilhaUm.exibirPilha()
+                + "\n• Pilha Dois: " + PilhaDois.exibirPilha();
+    }
+
+    public int getNumeroJogadas() {
         return NumeroDeJogadas;
     }
 }

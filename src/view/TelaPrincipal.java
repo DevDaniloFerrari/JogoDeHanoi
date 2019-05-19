@@ -34,14 +34,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         inicialBarra1 = new javax.swing.JLabel();
         inicialBarra2 = new javax.swing.JLabel();
         inicialBarra3 = new javax.swing.JLabel();
-        auxiliarUmBarra4 = new javax.swing.JLabel();
-        auxiliarUmBarra1 = new javax.swing.JLabel();
-        auxiliarUmBarra2 = new javax.swing.JLabel();
-        auxiliarUmBarra3 = new javax.swing.JLabel();
-        auxiliarDoisBarra4 = new javax.swing.JLabel();
-        auxiliarDoisBarra2 = new javax.swing.JLabel();
-        auxiliarDoisBarra3 = new javax.swing.JLabel();
-        auxiliarDoisBarra1 = new javax.swing.JLabel();
+        UmBarra4 = new javax.swing.JLabel();
+        UmBarra1 = new javax.swing.JLabel();
+        UmBarra2 = new javax.swing.JLabel();
+        UmBarra3 = new javax.swing.JLabel();
+        DoisBarra4 = new javax.swing.JLabel();
+        DoisBarra2 = new javax.swing.JLabel();
+        DoisBarra3 = new javax.swing.JLabel();
+        DoisBarra1 = new javax.swing.JLabel();
 
         jInternalFrame1.setVisible(true);
 
@@ -116,16 +116,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(inicialBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(auxiliarUmBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(auxiliarUmBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(auxiliarUmBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(auxiliarUmBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(UmBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UmBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UmBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UmBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(auxiliarDoisBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(auxiliarDoisBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(auxiliarDoisBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(auxiliarDoisBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DoisBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DoisBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DoisBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DoisBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(98, 98, 98)
@@ -160,21 +160,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(auxiliarDoisBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DoisBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(auxiliarDoisBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DoisBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(auxiliarDoisBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DoisBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(auxiliarDoisBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(DoisBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(auxiliarUmBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(UmBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(auxiliarUmBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(UmBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(auxiliarUmBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(UmBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(auxiliarUmBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(UmBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(32, 32, 32)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInserirTorreOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,8 +188,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     //BTN TORRE ORIGEM
     private void btnInserirTorreOrigemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirTorreOrigemActionPerformed
-
-
 
     }//GEN-LAST:event_btnInserirTorreOrigemActionPerformed
     //BTN TORRE UM
@@ -238,14 +236,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel auxiliarDoisBarra1;
-    private javax.swing.JLabel auxiliarDoisBarra2;
-    private javax.swing.JLabel auxiliarDoisBarra3;
-    private javax.swing.JLabel auxiliarDoisBarra4;
-    private javax.swing.JLabel auxiliarUmBarra1;
-    private javax.swing.JLabel auxiliarUmBarra2;
-    private javax.swing.JLabel auxiliarUmBarra3;
-    private javax.swing.JLabel auxiliarUmBarra4;
+    private javax.swing.JLabel DoisBarra1;
+    private javax.swing.JLabel DoisBarra2;
+    private javax.swing.JLabel DoisBarra3;
+    private javax.swing.JLabel DoisBarra4;
+    private javax.swing.JLabel UmBarra1;
+    private javax.swing.JLabel UmBarra2;
+    private javax.swing.JLabel UmBarra3;
+    private javax.swing.JLabel UmBarra4;
     private javax.swing.JButton btnInserirAuxiliarDois;
     private javax.swing.JButton btnInserirAuxiliarUm;
     private javax.swing.JButton btnInserirTorreOrigem;

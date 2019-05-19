@@ -63,19 +63,19 @@
                       </Group>
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="auxiliarUmBarra2" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
-                          <Component id="auxiliarUmBarra1" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
-                          <Component id="auxiliarUmBarra3" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
-                          <Component id="auxiliarUmBarra4" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
+                          <Component id="UmBarra2" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
+                          <Component id="UmBarra1" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
+                          <Component id="UmBarra3" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
+                          <Component id="UmBarra4" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace pref="14" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="auxiliarDoisBarra2" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
-                  <Component id="auxiliarDoisBarra1" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
-                  <Component id="auxiliarDoisBarra3" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
-                  <Component id="auxiliarDoisBarra4" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
+                  <Component id="DoisBarra2" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
+                  <Component id="DoisBarra1" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
+                  <Component id="DoisBarra3" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
+                  <Component id="DoisBarra4" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -117,22 +117,22 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="auxiliarDoisBarra4" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="DoisBarra4" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="auxiliarDoisBarra3" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="DoisBarra3" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="auxiliarDoisBarra2" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="DoisBarra2" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="auxiliarDoisBarra1" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="DoisBarra1" min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="auxiliarUmBarra4" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="UmBarra4" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="auxiliarUmBarra3" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="UmBarra3" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="auxiliarUmBarra2" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="UmBarra2" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="auxiliarUmBarra1" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="UmBarra1" min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -223,21 +223,21 @@
     </Component>
     <Component class="javax.swing.JLabel" name="inicialBarra3">
     </Component>
-    <Component class="javax.swing.JLabel" name="auxiliarUmBarra4">
+    <Component class="javax.swing.JLabel" name="UmBarra4">
     </Component>
-    <Component class="javax.swing.JLabel" name="auxiliarUmBarra1">
+    <Component class="javax.swing.JLabel" name="UmBarra1">
     </Component>
-    <Component class="javax.swing.JLabel" name="auxiliarUmBarra2">
+    <Component class="javax.swing.JLabel" name="UmBarra2">
     </Component>
-    <Component class="javax.swing.JLabel" name="auxiliarUmBarra3">
+    <Component class="javax.swing.JLabel" name="UmBarra3">
     </Component>
-    <Component class="javax.swing.JLabel" name="auxiliarDoisBarra4">
+    <Component class="javax.swing.JLabel" name="DoisBarra4">
     </Component>
-    <Component class="javax.swing.JLabel" name="auxiliarDoisBarra2">
+    <Component class="javax.swing.JLabel" name="DoisBarra2">
     </Component>
-    <Component class="javax.swing.JLabel" name="auxiliarDoisBarra3">
+    <Component class="javax.swing.JLabel" name="DoisBarra3">
     </Component>
-    <Component class="javax.swing.JLabel" name="auxiliarDoisBarra1">
+    <Component class="javax.swing.JLabel" name="DoisBarra1">
     </Component>
   </SubComponents>
 </Form>
