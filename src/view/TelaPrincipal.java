@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import jogo.JogoDeHanoi;
 
 public class TelaPrincipal extends javax.swing.JFrame {
@@ -20,13 +21,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public TelaPrincipal() throws Exception {
         initComponents();
+        this.setLocationRelativeTo(null);
 
         jogoDeHanoi = new JogoDeHanoi(4);
 
-        icon1 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra1.png");
-        icon2 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra2.png");
-        icon3 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra3.png");
-        icon4 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra4.png");
+        icon1 = new ImageIcon("src\\barras\\barra1.png");
+        icon2 = new ImageIcon("src\\barras\\barra2.png");
+        icon3 = new ImageIcon("src\\barras\\barra3.png");
+        icon4 = new ImageIcon("src\\barras\\barra4.png");
 
         this.inicialBarra1.setIcon(icon4);
         this.inicialBarra2.setIcon(icon3);
@@ -40,7 +42,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
-        btnInserirTorreOrigem = new javax.swing.JButton();
+        btnInserirTorreInicial = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -58,6 +60,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         DoisBarra2 = new javax.swing.JLabel();
         DoisBarra3 = new javax.swing.JLabel();
         DoisBarra1 = new javax.swing.JLabel();
+        btnSelecionarOrigemInicial = new javax.swing.JButton();
+        btnSelecionarOrigemUm = new javax.swing.JButton();
+        btnSelecionarOrigemDois = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtJogadas = new javax.swing.JLabel();
+        txtErro = new javax.swing.JLabel();
 
         jInternalFrame1.setVisible(true);
 
@@ -73,13 +81,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Jogo De Hanoi");
+        setResizable(false);
 
-        btnInserirTorreOrigem.setBackground(new java.awt.Color(255, 255, 102));
-        btnInserirTorreOrigem.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnInserirTorreOrigem.setText("Inserir");
-        btnInserirTorreOrigem.addActionListener(new java.awt.event.ActionListener() {
+        btnInserirTorreInicial.setBackground(new java.awt.Color(255, 255, 102));
+        btnInserirTorreInicial.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnInserirTorreInicial.setText("Inserir");
+        btnInserirTorreInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInserirTorreOrigemActionPerformed(evt);
+                btnInserirTorreInicialActionPerformed(evt);
             }
         });
 
@@ -110,6 +120,43 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnSelecionarOrigemInicial.setBackground(new java.awt.Color(255, 255, 102));
+        btnSelecionarOrigemInicial.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnSelecionarOrigemInicial.setText("Selecionar");
+        btnSelecionarOrigemInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarOrigemInicialActionPerformed(evt);
+            }
+        });
+
+        btnSelecionarOrigemUm.setBackground(new java.awt.Color(255, 255, 102));
+        btnSelecionarOrigemUm.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnSelecionarOrigemUm.setText("Selecionar");
+        btnSelecionarOrigemUm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarOrigemUmActionPerformed(evt);
+            }
+        });
+
+        btnSelecionarOrigemDois.setBackground(new java.awt.Color(255, 255, 102));
+        btnSelecionarOrigemDois.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnSelecionarOrigemDois.setText("Selecionar");
+        btnSelecionarOrigemDois.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarOrigemDoisActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        jLabel4.setText("Número de Jogadas: ");
+
+        txtJogadas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtJogadas.setText("0");
+
+        txtErro.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        txtErro.setForeground(new java.awt.Color(204, 0, 0));
+        txtErro.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,7 +178,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(UmBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
+                        .addGap(112, 112, 112)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
@@ -149,63 +196,87 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addGap(56, 56, 56))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(98, 98, 98)
-                .addComponent(btnInserirTorreOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(205, 205, 205)
-                .addComponent(btnInserirAuxiliarUm, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSelecionarOrigemInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(204, 204, 204)
+                        .addComponent(btnSelecionarOrigemUm, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnInserirTorreInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(205, 205, 205)
+                        .addComponent(btnInserirAuxiliarUm, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnInserirAuxiliarDois, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnInserirAuxiliarDois, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelecionarOrigemDois, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtJogadas)
+                .addGap(119, 119, 119)
+                .addComponent(txtErro)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtJogadas)
+                    .addComponent(txtErro))
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
                         .addComponent(inicialBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(inicialBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(inicialBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(inicialBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(inicialBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
                         .addComponent(inicialBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(DoisBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(DoisBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DoisBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(DoisBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(UmBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(UmBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(UmBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(UmBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(32, 32, 32)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(DoisBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(DoisBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(DoisBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(DoisBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(UmBarra4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(UmBarra3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(UmBarra2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(UmBarra1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInserirTorreOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInserirTorreInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInserirAuxiliarUm, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInserirAuxiliarDois, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSelecionarOrigemInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelecionarOrigemUm, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelecionarOrigemDois, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void moverBarra(int origem, int destino) {
+    public void moverBarra(int origem, int destino) throws Exception {
         this.colocarIconeNoDestino(destino, this.obterIcone(origem));
         this.zerarLocalizadores();
     }
@@ -244,7 +315,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     this.DoisBarra2.setIcon(icone);
                 } else if (this.DoisBarra3.getIcon() == null) {
                     this.DoisBarra3.setIcon(icone);
-                } else{
+                } else {
                     this.DoisBarra4.setIcon(icone);
                 }
                 break;
@@ -336,46 +407,103 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     //BTN TORRE ORIGEM
-    private void btnInserirTorreOrigemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirTorreOrigemActionPerformed
+    private void btnInserirTorreInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirTorreInicialActionPerformed
 
-        if (origem == 0) {
+      /*  if (origem == 0) {
             origem = 1;
         } else {
             destino = 1;
-        }
+        }*/
+      destino  = 1;
 
-        if (destino != 0) {
-            this.moverBarra(origem, destino);
-        }
+            try {
+               if( jogoDeHanoi.fazerJogada(origem, destino)){
+                this.moverBarra(origem, destino);
+                    txtErro.setText("");
+                    txtJogadas.setText(""+jogoDeHanoi.getNumeroJogadas());
+            }else{
+                   txtErro.setText("Você não pode fazer isso.");
+               }
+            } catch (Exception ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
 
-    }//GEN-LAST:event_btnInserirTorreOrigemActionPerformed
+        
+
+    }//GEN-LAST:event_btnInserirTorreInicialActionPerformed
     //BTN TORRE UM
     private void btnInserirAuxiliarUmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirAuxiliarUmActionPerformed
-        if (origem == 0) {
+  /*       if (origem == 0) {
             origem = 2;
         } else {
             destino = 2;
         }
-
-        if (destino != 0) {
-            this.moverBarra(origem, destino);
-        }
+*/
+  destino  = 2;
+            try {
+               if( jogoDeHanoi.fazerJogada(origem, destino)){
+                this.moverBarra(origem, destino);
+                 txtErro.setText("");
+                 txtJogadas.setText(""+jogoDeHanoi.getNumeroJogadas());
+            }else{
+                   txtErro.setText("Você não pode fazer isso.");
+               }
+            } catch (Exception ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
 
 
     }//GEN-LAST:event_btnInserirAuxiliarUmActionPerformed
     //BTN TORRE DOIS
     private void btnInserirAuxiliarDoisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirAuxiliarDoisActionPerformed
 
-        if (origem == 0) {
+    /*    if (origem == 0) {
             origem = 3;
         } else {
             destino = 3;
         }
-
-        if (destino != 0) {
-            this.moverBarra(origem, destino);
-        }
+*/
+    destino = 3;
+            try {
+               if( jogoDeHanoi.fazerJogada(origem, destino)){
+                this.moverBarra(origem, destino);
+                 txtErro.setText("");
+                 txtJogadas.setText(""+jogoDeHanoi.getNumeroJogadas());
+            }else{
+                   txtErro.setText("Você não pode fazer isso.");
+               }
+            } catch (Exception ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
     }//GEN-LAST:event_btnInserirAuxiliarDoisActionPerformed
+//BOTOES SELECIONAR
+    
+    private void btnSelecionarOrigemInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarOrigemInicialActionPerformed
+        if(jogoDeHanoi.getOrigem(1).isEmpty()){
+            JOptionPane.showMessageDialog(null, "Essa torre está vazia!");
+        }else{
+        origem = 1;
+        }
+    }//GEN-LAST:event_btnSelecionarOrigemInicialActionPerformed
+
+    private void btnSelecionarOrigemUmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarOrigemUmActionPerformed
+        if(jogoDeHanoi.getOrigem(2).isEmpty()){
+            JOptionPane.showMessageDialog(null, "Essa torre está vazia!");
+        }else{
+        origem =2;
+        }
+    }//GEN-LAST:event_btnSelecionarOrigemUmActionPerformed
+
+    private void btnSelecionarOrigemDoisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarOrigemDoisActionPerformed
+        if(jogoDeHanoi.getOrigem(3).isEmpty()){
+            JOptionPane.showMessageDialog(null, "Essa torre está vazia!");
+        }else{
+        origem = 3;
+        }
+    }//GEN-LAST:event_btnSelecionarOrigemDoisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -437,7 +565,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel UmBarra4;
     private javax.swing.JButton btnInserirAuxiliarDois;
     private javax.swing.JButton btnInserirAuxiliarUm;
-    private javax.swing.JButton btnInserirTorreOrigem;
+    private javax.swing.JButton btnInserirTorreInicial;
+    private javax.swing.JButton btnSelecionarOrigemDois;
+    private javax.swing.JButton btnSelecionarOrigemInicial;
+    private javax.swing.JButton btnSelecionarOrigemUm;
     private javax.swing.JLabel inicialBarra1;
     private javax.swing.JLabel inicialBarra2;
     private javax.swing.JLabel inicialBarra3;
@@ -446,5 +577,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel txtErro;
+    private javax.swing.JLabel txtJogadas;
     // End of variables declaration//GEN-END:variables
 }
