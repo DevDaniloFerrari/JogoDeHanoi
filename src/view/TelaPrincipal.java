@@ -25,7 +25,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         icon3 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra3.png");
         icon4 = new ImageIcon("D:\\Projetos\\Java\\aps-codemit\\src\\barras\\barra4.png");
 
-        this.inicialBarra1.setIcon(icon4);
+        this.inicialBarra2.setIcon(icon4);
         this.inicialBarra2.setIcon(icon3);
         this.inicialBarra3.setIcon(icon2);
         this.inicialBarra4.setIcon(icon1);
@@ -235,11 +235,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 }
                 break;
             }
-        }
 
-    
-
-case 3: {
+            case 3: {
                 if (this.DoisBarra4.getIcon() != null) {
                     this.DoisBarra4.setIcon(icone);
                 }
@@ -367,40 +364,24 @@ case 3: {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                
 
-
-
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(TelaPrincipal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
-
-
-
-} catch (InstantiationException ex) {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(TelaPrincipal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
-
-
-
-} catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(TelaPrincipal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
-
-
-
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaPrincipal.class
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -409,14 +390,10 @@ case 3: {
             public void run() {
                 try {
                     new TelaPrincipal().setVisible(true);
-                
 
-
-
-} catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(TelaPrincipal.class
-
-.getName()).log(Level.SEVERE, null, ex);
+                            .getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
