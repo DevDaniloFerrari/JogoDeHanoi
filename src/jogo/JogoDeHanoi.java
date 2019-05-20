@@ -102,7 +102,7 @@ public class JogoDeHanoi {
     }
 
     public boolean terminou() {
-        if (this.PilhaInicial.isEmpty() & this.PilhaUm.isEmpty()) {
+        if (this.PilhaInicial.isEmpty() && (this.PilhaUm.isFull() || this.PilhaDois.isFull())) {
             this.NumeroDeJogadas = 0;
             return true;
         }
