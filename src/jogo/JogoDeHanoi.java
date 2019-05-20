@@ -55,7 +55,6 @@ public class JogoDeHanoi {
         }
 
         if (origem.isEmpty()) {
-            System.out.println("Origem vazia!");
             return false;
         }
 
@@ -72,7 +71,6 @@ public class JogoDeHanoi {
         }
 
         if (destino.isFull()) {
-            System.out.println("Destino está cheio!");
             return false;
         }
 
@@ -95,8 +93,6 @@ public class JogoDeHanoi {
         if (destino != origem) {
             this.NumeroDeJogadas++;
         }
-        System.out.println(getNumeroJogadas());
-        System.out.println(terminou());
 
         return true;
     }
