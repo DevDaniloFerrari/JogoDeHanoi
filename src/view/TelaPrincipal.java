@@ -469,6 +469,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.inicialBarra3.setIcon(icon2);
         this.inicialBarra4.setIcon(icon1);
 
+        this.UmBarra1.setIcon(null);
+        this.UmBarra2.setIcon(null);
+        this.UmBarra3.setIcon(null);
+        this.UmBarra4.setIcon(null);
+
         this.DoisBarra1.setIcon(null);
         this.DoisBarra2.setIcon(null);
         this.DoisBarra3.setIcon(null);
