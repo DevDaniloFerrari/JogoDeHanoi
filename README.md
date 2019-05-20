@@ -4,6 +4,9 @@
 <li>Danilo Ferrari - <b>RA: 21086355</b></li>
 <li>Manoel Merlin - <b>RA: 21154363</b></li>
 <li>Lucas Oliveira - <b>RA: 21094755</b></li>
+<h3>Como executar</h3>
+Utilizamos JPanel Form para interface interativa, então é necessário executar a classe TelaPrincipal.java para iniciar o jogo.
+
 
 <h3> Introdução </h3>
 O famoso jogo da Torre de Hanói é um "quebra-cabeça" que consiste em uma base contendo três pinos, em um dos quais são dispostos alguns discos uns sobre os outros, em ordem crescente de diâmetro, de cima para baixo.
