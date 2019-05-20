@@ -35,7 +35,7 @@ public class JogoDeHanoiTest {
     }
 
     @Test
-    public void testTerminarJogada() throws Exception {
+    public void testTerminarJogadaNaTorreFinal() throws Exception {
         jogoDeHanoi.fazerJogada(1, 2);
         jogoDeHanoi.fazerJogada(1, 3);
         jogoDeHanoi.fazerJogada(2, 3);
@@ -89,5 +89,28 @@ public class JogoDeHanoiTest {
     @Test
     public void testDestinoIgualOrigem() throws Exception {
         Assert.assertFalse(jogoDeHanoi.fazerJogada(1, 1));
+    }
+    
+    @Test 
+    public void testTerminarJogadaNaTorreDoMeio() throws Exception{
+        jogoDeHanoi.fazerJogada(1, 3);
+        jogoDeHanoi.fazerJogada(1, 2);
+        jogoDeHanoi.fazerJogada(3, 2);
+        jogoDeHanoi.fazerJogada(1, 3);
+        jogoDeHanoi.fazerJogada(2, 1);
+        jogoDeHanoi.fazerJogada(2, 3);
+        jogoDeHanoi.fazerJogada(1, 3);
+        jogoDeHanoi.fazerJogada(1, 2);
+        jogoDeHanoi.fazerJogada(3, 2);
+        jogoDeHanoi.fazerJogada(3, 1);
+        jogoDeHanoi.fazerJogada(2, 1);
+        jogoDeHanoi.fazerJogada(3, 2);
+        jogoDeHanoi.fazerJogada(1, 2);
+        jogoDeHanoi.fazerJogada(2, 3);
+        jogoDeHanoi.fazerJogada(1, 2);
+        jogoDeHanoi.fazerJogada(3, 2);
+        
+         Assert.assertEquals(true, jogoDeHanoi.terminou());
+
     }
 }
