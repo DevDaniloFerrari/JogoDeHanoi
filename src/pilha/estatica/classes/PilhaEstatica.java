@@ -1,9 +1,19 @@
+/*
+
+APS - ESTRUTURA DE DADOS
+ALUNOS: 
+Lucas Rodrigues Souza - RA: 21069949
+Danilo Ferrari - RA: 21086355
+Manoel Merlin - RA: 21154363
+Lucas Oliveira - RA: 21094755
+
+ */
 package pilha.estatica.classes;
 
 import pilha.estatica.exceptions.PilhaEstaticaException;
 import pilha.estatica.interfaces.IPilhaEstatica;
 
-public class PilhaEstatica<T> implements IPilhaEstatica {
+public class PilhaEstatica implements IPilhaEstatica {
 
     public PilhaEstatica(int tamanhoDaPilha) {
         this.Dados = new Object[tamanhoDaPilha];
@@ -47,17 +57,26 @@ public class PilhaEstatica<T> implements IPilhaEstatica {
     }
 
     @Override
-    public Object peek() throws Exception{
+    public Object peek() throws Exception {
         if (isEmpty()) {
             throw new PilhaEstaticaException("Pilha vazia!");
         }
-        
-        return Dados[(Topo-1)];
+
+        return Dados[(Topo - 1)];
     }
 
     @Override
     public int size() {
         return Topo;
+    }
+
+    @Override
+    public String exibirPilha() {
+        String resultado = "";
+        for (int i = 0; i < Dados.length; i++) {
+            resultado += Dados[i] + ";";
+        }
+        return resultado;
     }
 
 }

@@ -84,4 +84,17 @@ public class PilhaEstaticaTest {
         pilhaEstatica.push(3);
         Assert.assertEquals(3, pilhaEstatica.size());
     }
+    
+    @Test
+    public void exibirPilha() throws Exception {
+        pilhaEstatica.push(1);
+        pilhaEstatica.push(2);
+        pilhaEstatica.push(3);
+        pilhaEstatica.push(4);
+        pilhaEstatica.push(5);
+         
+        String exibir = pilhaEstatica.exibirPilha();
+        Assert.assertEquals("1;2;3;4;5;",exibir);
+    }
+    
 }
